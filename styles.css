@@ -1,0 +1,92 @@
+body {
+    background-color: rgb(164, 139, 224);
+  }
+  @font-face {
+      font-family: "oswald";
+      src: url(/oswald-_[hu.allfont.net].ttf);
+      font-weight: 500;
+        }
+        @import url('https//fonts.googleapis.com/css?');
+  html {
+      color: black;
+  }  
+  h1 {
+    
+    text-align: left;
+    font-family: "oswald";
+    text-shadow: 2px 2px 2px rgb(126, 126, 53);
+    
+
+  } 
+  h3 {
+    
+    text-align: left;
+    font-family: 'Courier New', Courier, monospace;
+    text-shadow: 2px 2px 2px rgb(126, 126, 53);
+    color: blueviolet;
+    
+  }
+  .content {
+    
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 10px;
+    margin-bottom: 25px;
+    margin-right: 0px;
+    border: lightgreen solid 2px;
+    padding: 60px;
+    
+  }
+  .bold {
+    
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    color: white;
+    text-transform: uppercase;
+       
+  }
+  .ezaz {
+    
+    background-color: lightgray;
+       
+  }
+  .laza {
+    
+    background-color: rgb(199, 54, 54);
+       
+  }
+
+  #bio-header {
+    
+    color: blue;
+    
+  }
+  #skill-header {
+    
+    color: lightcyan;
+    
+  }
+  p {
+    color: red;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    text-overflow: ellipsis;
+    max-width: 90%;
+    
+    
+  }
+  img {
+      
+      width: 12%;
+      margin: 2%;
+      
+      box-shadow: 0 2px 7px black;
+  }
+  #img-1{
+      position: fixed;
+      top: 10px;
+      left: 50px;
+     
+    
+}
+  

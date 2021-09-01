@@ -1,0 +1,23 @@
+#colorDiv {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(0,0,255,0.1);
+
+}
+    #colorDov {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        background-color:rgba(255,0,0,0.1);
+    }
+    #colorDev {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        background-color:rgba(0, 255,0, 0.1);
+    }
+    body {
+        background-image: url(/amulatba.jpeg);
+    
+    }

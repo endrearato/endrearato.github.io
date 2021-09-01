@@ -1,0 +1,43 @@
+body {
+    background-color: lightgray;
+}
+.login-div {
+    padding: 15px;
+    border: solid 1px black;
+    box-shadow: 0 0 2px;
+    display: inline-block;
+}
+
+.login-div input {
+    display:block;
+    margin-bottom: 7px;
+}
+
+
+/*.login-div input[class$="red"] {
+    border: solid 1px red;
+}*/
+/*.login-div input[class^="blue"] {
+    border: solid 1px blue;
+}*/
+.login-div button:hover {
+    box-shadow: 1px 1px 3px;
+}
+
+.login-div input:focus {
+    box-shadow: 1px 1px 2px;
+    border: none;
+}
+
+ul li:last-child {
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration-line: underline;
+}
+
+ul li:first-child {
+    color: red;
+}
+
+ul li:nth-child(2) {
+    color: blue;
+}
