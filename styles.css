@@ -83,7 +83,7 @@ body {
       box-shadow: 0 2px 7px black;
   }
   #img-1{
-      position: fixed;
+      position: static;
       top: 10px;
       left: 50px;
      

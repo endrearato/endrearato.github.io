@@ -6,17 +6,97 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        h1 {
-            color: blue;
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
 </head>
 
 <body>
     <h1>Rendelés <br>
-        <button><a href="index.html">Vissza</button></a>
+        <button><a href="navbar.html">Vissza</button></a>
     </h1>
+    <input type="color"><br>
+    <input type="month"><br>
+    <input type="week"><br>
+    <input type="time"><br>
+    <input type="range"><br>
+    <input type="text"><hr>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <table id="userTable" class=" table table-striped table-bordered table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Vezeteknev</th>
+                            <th>Keresztnev</th>
+                            <th>Eletkor</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Kiss</td>
+                            <td>Janos</td>
+                            <td>55</td>
+                            <td>
+                                <div class="btn-group">
+                                    <button class="btn-info btn">
+                                        <i class="bi bi-pencil-fill"></i>
+                                    </button>
+                                    <button class="btn-danger btn">
+                                        <i class="bi bi-trash-fill"></i>
+                                    </button>
+                                </div>
+                            </td>   
+                        </tr>  
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <h3>Hambi rendeles</h3>
+
+                <div class="alert alert-primary alert-dismissible" role="alert" id="liveAlert">
+                    <strong>Nice!</strong> You've triggered this alert.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <form id="orderForm" action="">
+                    <div class="" form-group">
+                        <label for="">Feltet</label>
+                        <select id="topInput" name="top-input" class="form-control"></select>
+
+                    </div> <br>
+                    <div class="form-group">
+                        <label for="">Mennyiseg</label>
+                        <input type="number" name="amount-input" class="form-control" value="1">
+                        <small class="form-text text-muted"> <br>
+                            Minimum:1 Max.: 10
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        Fizetendő: <span class="show-amount">0
+                        </span>Ft
+                    </div>
+                    <button onclick="calcAmount()" type="submit" class="btn btn-primary">Megrendeles </button>
+                </form>
+
+                <script src="/js/main.js"></script>
+                <!-- <script src="/js/scope.js"></script> -->
+                <!--script src="/js/algo.js"></script-->
+
 </body>
 
 </html>

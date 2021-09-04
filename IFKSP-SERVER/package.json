@@ -1,0 +1,20 @@
+{
+  "name": "ifksp-server",
+  "version": "1.0.0",
+  "main": "app.js",
+  "dependencies": {
+    "bootstrap": "^5.1.0",
+    "express-generator": "^4.16.1",
+    "font-awesome": "^4.7.0",
+    "json-server": "^0.16.3",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
