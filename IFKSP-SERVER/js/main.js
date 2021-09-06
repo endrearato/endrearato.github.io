@@ -1,3 +1,7 @@
+// Keys of users
+let keys = ["id", "name", "email"];
+
+
 //Get data from the server.
 function getServerData(url) {
     let fetchOptions = {
@@ -9,14 +13,17 @@ function getServerData(url) {
     return fetch(url, fetchOptions).then(
         Response => Response.json(),
         err => console.error(err)
-    )
+    );
 }
 
-document.querySelector("#getDataBtn").addEventListener("click", function() {
+function startGetUsers() {
     getServerData("http://localhost:3000/users").then(
-    data => fillDataTable(data, "userTable")
+        data => fillDataTable(data, "userTable")
     );
-});          
+}
+
+
+document.querySelector("#getDataBtn").addEventListener("click", startGetUsers);          
 
 //Fill table with server data
 function fillDataTable(data, tableID) {
@@ -26,17 +33,31 @@ function fillDataTable(data, tableID) {
         return;
     }
 
-    let tbody = table.querySelector("tbody");
+    // Add new user row to the table
+    
+    let tBody = table.querySelector("tbody");
+    tBody.innerHTML = '';
+    let newRow = newUserRow();
+    tBody.appendChild(newRow);
+
     for (let row of data) {
         let tr = createAnyElement("tr");
-        for (let k in row) {
-            let td = createAnyElement("td");
-            td.innerHTML = row[k];
+        for (let k of keys) {
+            let td = createAnyElement("td");                         
+            let input = createAnyElement("input", {
+                class: "form-control",
+                value: row[k],
+                name: k
+            });                    
+            if (k== "id") {
+                input.setAttribute("readonly", true);
+            }         
+            td.appendChild(input);
             tr.appendChild(td);
-        }
+        }         
         let btnGroup = createBtnGroup();
         tr.appendChild(btnGroup);
-        tbody.appendChild(tr);
+        tBody.appendChild(tr);
     }
 }
 
@@ -49,10 +70,13 @@ function createAnyElement(name, attributes) {
 }
 
 function createBtnGroup () {
-    let group = createAnyElement("div", {class: "btn btn-group"});
-    let infoBtn = createAnyElement("button", {class: "btn btn-info"});
-    let delBtn = createAnyElement("button", {class: "btn btn-danger"});
     
+    let group = createAnyElement("div", {class: "btn btn-group"});
+    let infoBtn = createAnyElement("button", {class: "btn btn-info", onclick: "getInfo(this)"});
+    infoBtn.innerHTML = '<i class="bi bi-pencil-fill"> ::before </i>';
+    let delBtn = createAnyElement("button", {class: "btn btn-danger", onclick: "delRow(this)"});
+    delBtn.innerHTML = '<i class="bi bi-trash-fill"> ::before </i>';
+
     group.appendChild(infoBtn);
     group.appendChild(delBtn);
 
@@ -60,4 +84,100 @@ function createBtnGroup () {
     td.appendChild(group);
 
     return td;
+}
+
+function delRow(btn) {
+    let tr = btn.parentElement.parentElement.parentElement;
+    let id = tr.querySelector("td:first-child").innerHTML;
+    let fetchOptions = {
+        method: "DELETE",
+        mode: "cors",
+        cache: "no-cache"
+    };
+
+    fetch('http://localhost:3000/users/${id}', fetchOptions).then(
+        resp => resp.json(),
+        err => console.log(err)
+    ).then(
+        data => {
+            startGetUsers();
+        }
+    );
+}
+
+//create new user
+function newUserRow(row) {
+    let tr = createAnyElement("tr");
+    for (let k of keys) {
+        let td = createAnyElement("td");
+        let input = createAnyElement("input", {
+            class: "form-control",
+            name: k
+        });
+        td.appendChild(input);
+        tr.appendChild(td);
+    }
+
+    let newBtn = createAnyElement("button", {
+        class: "btn btn-success",
+        onclick: "createUser(this)"
+    });
+    newBtn.innerHTML = '<i class="bi bi-person-plus-fill"></i>';
+    let td = createAnyElement("td";)
+    td.appendChild(newBtn);
+    tr.appendChild(td);
+
+    return tr;
+}
+function createUser(btn){
+    let tr = btn.parentElement.parentElement;
+    let data = getRowData(tr);
+    delete data.id;
+    let fetchOptions = {
+        method: "POST",
+        mode: "cors",
+        cache: "no-cache",
+        headers: {
+            'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify(data)
+    };
+
+    fetch('http://localhost:3000/users', fetchOptions).then(
+        resp => resp.json(),
+        err => console.error(err)
+    ).then(
+        data => startGetUsers()
+    );
+}
+
+function getRowData(tr) {
+    let inputs = tr.querySelectorAll("input.form-control");
+    let data = {};
+    for (let i = 0; i < inputs.lenght; i++) {
+        data[inputs[i].name] = inputs[i].value;
+    }
+    return data;
+}
+
+//Set data
+function setRow(btn) {
+    let tr = btn.parentElement.parentElement.parentElement;
+    let data = getRowData(tr);
+
+    let fetchOptions = {
+        method: "PUT",
+        mode: "cors",
+        cache: "no-cache",
+        headers: {
+            "Content-Type": "application/jason"
+        },
+        body: JSON.stringify(data)
+    };
+    fetch('http://localhost:3000/users/${data.id}', fetchOptions).then(
+        resp => resp.jason(),
+        err => console.log(err)
+    ).then(
+        data => startGetUsers()
+    );
 }
