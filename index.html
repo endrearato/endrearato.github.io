@@ -6,21 +6,113 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fincsiburger</title>
+    <style>
+        .gomb {
+            border: 2px solid black;
+            border-radius: 4px;
+            padding:2px 5px;
+            background-color: lightgrey;
+            display: inline-block;
+            margin-bottom: 3px;
+            margin-top: 3px;
+        }
+        .gomb a {
+            color: black;
+            text-decoration: none;
+        }
+    
+        .gomb:hover {
+            background: white;
+            box-shadow: 0 0 10px cyan;
+            border: 2px solid white;
+        }
+
+        img {
+            height: 200px;
+            margin-bottom: 15px;
+        }
+
+        .menu-kep {
+            width: 80px;
+            height: auto;
+        }
+
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: lightcyan;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h5 {
+            margin-bottom: 5px;
+            margin-top: 15px;
+        }
+
+        ol {
+            margin-bottom: 20px;
+            margin-left: 30px;
+        }
+
+        ul ul li {
+            list-style: none;
+        }
+
+        address {
+            margin: 0 0 25px 0;
+        }
+
+        p {
+            line-height: 1.5rem;
+        }
+
+        pre {
+            margin-top: 15px;
+        }
+
+        .footer {
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+        }
+
+        .wrapper {
+            margin: 0 auto;
+            max-width: 800px;
+        }
+    </style>
 </head>
 
-<body style="background-color:lightcyan;">
-    <h1 style="text-align:center; ">Ez a burgerező főoldala
+<body>
 
-    </h1>
+
+    <h1>Ez a burgerező főoldala</h1>
+    <div class="wrapper">
     <ul>
-        <li>Sima burger</li> <img src="vega.jpg" alt="vega" width="100" height="50">
-        <li>Vega burger</li> <img src="vega.jpg" alt="vega" width="100" height="50">
-        <li>Dupla burger</li> <img src="vega.jpg" alt="vega" width="100" height="50">
-        <ul>
-            <li>Marha</li>
-            <li>Sertés</li>
-            <li>Csirke</li>
-        </ul>
+        <li>Sima burger <br>
+            <img class="menu-kep" src="vega.jpg" alt="vega"  >
+        </li>
+        <li>Vega burger <br>
+            <img class="menu-kep" src="vega.jpg" alt="vega"  >
+        </li>
+        <li>Dupla burger <br>
+            <img class="menu-kep" src="vega.jpg" alt="vega"  >
+
+            <ul>
+                <li>Marha</li>
+                <li>Sertés</li>
+                <li>Csirke</li>
+            </ul>
+        </li>
     </ul>
     <h5>Választható feltétek:</h5>
     <ol>
@@ -38,7 +130,7 @@
     </address>
 
     <h2>
-        <img src="letoltes.jpg" alt="étterem" width="350" height="200">
+        <img src="letoltes.jpg" alt="étterem">
     </h2>
 
     <p>
@@ -80,7 +172,6 @@
     Kilátszik a vízből két szép térdecskéje
     Kukoricza Jancsi gyönyörűségére.
     Mert a pázsit fölött heverésző juhász
-<h3 id="content"> content</h3>
 
     Kukoricza Jancsi, ki is lehetne más?
     Ki pedig a vízben a ruhát tisztázza,
@@ -113,18 +204,33 @@
 </pre>
     <br>
     <b>Rendeléshez kattitson a képre</b> <br>
-    <a href="http://www.index.hu" target="_blank" rel="noopener noreferrer" widht="25px" height="25px">
+    <a href="http://www.index.hu" target="_blank" rel="noopener noreferrer" >
         <img src="robogo.jpeg" alt="robogo">
     </a>
+</div>
+    <br> 
+<div class="footer">
+    <div class="gomb">
+    <a href="menu.html">Menü</a>
+    </div>
     <br>
-    <button><a href="menu.html">Menü</a> </button>
+    <div class="gomb">
+    <a href="order.html">Rendeles</a>
+    </div>
     <br>
-    <button><a href="order.html">Rendelés</a> </button>
+    <div class="gomb">
+    <a href="prod.html">Termekek</a>
+    </div>
     <br>
-    <button><a href="prod.html">Termékek</a> </button>
+    <div class="gomb">
+    <a href="about.html">Rolunk</a>
+    </div>
     <br>
-    <button><a href="about.html">Rólunk</a> </button>
-    <button><a href="#top">oldal teteje</a></button>
+    <div class="gomb">
+    <a href="#top">Oldal teteje</a>
+    </div>
+</div>
+    
 </body>
 
 </html>
